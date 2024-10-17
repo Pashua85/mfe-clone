@@ -18,4 +18,4 @@ npm run start
 
 ____
 
-[a relative link](instruction.md)
+[Инструкция по добавлению микрофронта](instruction.md)
