@@ -2,9 +2,29 @@
   "name": "mfe",
   "version": "1.0.0",
   "scripts": {
-    
+    "install:app1": "cd app1 && npm install",
+    "install:app2": "cd app2 && npm install",
+    "install:common-mfe": "cd common-mfe && npm install",
+    "install:orchestrator": "cd orchestrator && npm install",
+    "postinstall": "npm i npm-run-all concurrently --save-dev && run-p install:*",
+    "library:build": "cd common-mfe && npm run build",
+    "library:link": "cd common-mfe && npm link",
+    "add-library:app1": "cd app1 && npm link common-mfe",
+    "add-library:app2": "cd app2 && npm link common-mfe",
+    "add-library:orchestrator": "cd orchestrator && npm link common-mfe",
+    "add-library-all": "run-p add-library:*",
+    "connect-library": "npm run library:build && npm run library:link && npm run add-library-all",
+    "init": "npm run postinstall && npm run connect-library",
+    "begin:app1": "cd app1 && npm run start",
+    "begin:app2": "cd app2 && npm run start",
+    "begin:orchestrator": "cd orchestrator && npm run start",
+    "start": "concurrently npm run \"npm run begin:app1\" \"npm run begin:app2\" \"npm run begin:orchestrator\""
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "npm-run-all": "^4.1.5"
+  }
 }
