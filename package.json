@@ -14,11 +14,11 @@
     "add-library:orchestrator": "cd orchestrator && npm link common-mfe",
     "add-library-all": "run-p add-library:*",
     "connect-library": "npm run library:build && npm run library:link && npm run add-library-all",
-    "init": "npm run postinstall && npm run connect-library",
     "begin:app1": "cd app1 && npm run start",
     "begin:app2": "cd app2 && npm run start",
     "begin:orchestrator": "cd orchestrator && npm run start",
-    "start": "concurrently npm run \"npm run begin:app1\" \"npm run begin:app2\" \"npm run begin:orchestrator\""
+    "start": "concurrently npm run \"npm run begin:app1\" \"npm run begin:app2\" \"npm run begin:orchestrator\"",
+    "init": "npm run postinstall && npm run connect-library && npm run start"
   },
   "author": "",
   "license": "ISC",
