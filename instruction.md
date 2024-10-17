@@ -48,3 +48,16 @@ declare module '[название1]/Module';
     "common-mfe": { singleton: true, strictVersion: true, requiredVersion: '0.0.1' }
   },
 ```
+
+10. В файле `package.json`, находящимся в корневом каталоге, необходимо добавить скрипты по аналогии с существующими:
+```
+  scripts: {
+    ...
+    "install:[название]": "cd [название] && npm install",
+    ...
+    "add-library:[название]": "cd [название] && npm link common-mfe",
+    ...
+    "begin:[название]": "cd [название] && npm run start",
+    ...
+  }
+```
