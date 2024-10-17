@@ -31,8 +31,8 @@ module.exports = withModuleFederationPlugin({
 6. В оркестраторе нужно дополнить файл для типизации микрофронта orchestrator/src/decl.d.ts
 
 ```
-declare module '[название1]/Module';
-declare module '[название1]/Module';
+...
+declare module '[название]/Module';
 ...
 ```
 
